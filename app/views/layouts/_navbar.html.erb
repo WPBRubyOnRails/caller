@@ -8,24 +8,32 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">CALLER</a>
+      <%= link_to "CALLER", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <!--<li class="active"><a href="#">About Us<span class="sr-only">(current)</span></a></li>-->
+        <!--<li><a href="#">Contact</a></li>-->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <!--<li><a href="#">Link</a></li>-->
+        <li><a href="#">About Us<span class="sr-only"></span></a></li>
+        <li><a href="#">Contact</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">New Voters</a></li>
-            <li><a href="#">New User</a></li>
+          <% if current_user %>
+          <li><%= link_to "New User", new_user_registration_path %></li>
+            <li><%= link_to 'New Voter', new_voter_path %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Sign In</a></li>
+            <li><a href="#">Sign Out</a></li>
+          <% else %>
+            <li><%= link_to 'Sign In User', new_user_session_path %></li>
+            <li><%= link_to "Sign In Voter", new_user_registration_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Register</a></li>
+          <% end %>
           </ul>
         </li>
       </ul>

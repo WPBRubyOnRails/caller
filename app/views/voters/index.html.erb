@@ -27,6 +27,7 @@
 </table>
 
 <br>
-
+<% if current_user %>
 <%= link_to 'New Voter', new_voter_path %> |
 <%= link_to "New User", new_user_registration_path %>
+<% end %>
