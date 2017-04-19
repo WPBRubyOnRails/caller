@@ -13,8 +13,6 @@ class VotersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    current_user = @user
-    current_user.id = 1
     get new_voter_url
     assert_response :success
   end
