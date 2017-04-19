@@ -10,7 +10,19 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <% unless Rails.env.test? %>
+    <% if voter.new_record? %>
+      <div class="field">
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+      </div>
+    <% else %>
+      <div class="field">
+        <%= f.hidden_field :user_id %>
+      </div>
+    <% end %>
+  <% end %>
+  
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>

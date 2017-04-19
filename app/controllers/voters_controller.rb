@@ -69,6 +69,6 @@ class VotersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def voter_params
-      params.require(:voter).permit(:first_name, :last_name, :phone_number)
+      params.require(:voter).permit(:first_name, :last_name, :phone_number, :user_id)
     end
 end
